@@ -20,3 +20,5 @@ cp honey-cycle /usr/local/sbin/
 chmod +x /usr/local/sbin/honey-cycle
 cp honey.service /usr/lib/systemd/system/honey.service
 systemctl enable /usr/lib/systemd/system/honey.service
+cd /var/tmp/
+rm -rf /var/tmp/hcint
