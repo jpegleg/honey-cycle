@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
-
+if [ -e /opt/net-gargoyle/workspace/cycle.py ]; then
+  echo "Existing script found at /opt/net-gargoyle/workspace/cycle.py"
+  exit 0
+else
+  echo "Installing honey cycle"
+fi
 mkdir /var/tmp/hcint 2>/dev/null
 cd /var/tmp/hcint
 rm -rf ./*
