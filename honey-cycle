@@ -2,4 +2,4 @@
 
 cd /opt/net-gargoyle/workspace
 source ngvenv/bin/activate
-python3 cycle.py GargoyleCycler 86400 &
+python3 cycler.py GargoyleCycler 86400 &
