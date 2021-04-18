@@ -28,12 +28,11 @@ class honeyCycle():
         gzipdbs = 'gzip -9 /opt/net-gargoyle/*.db'
         os.system(gzipdbs)
         print ("honeyCycle >>> removing old db files", self.name)
-        olddbs = 'find /opt/net-gargoyle/*.db.gz -mtime +10'
+        olddbs = 'find /opt/net-gargoyle/*.db.gz -mtime +17'
         os.system(olddbs)
         print ("honeyCycle >>> cleaning up old pcap files", self.name)
-        cleanpcap = 'find /opt/net-gargoyle/*.pcap -mtime +10'
+        cleanpcap = 'find /opt/net-gargoyle/*.pcap -mtime +7'
         os.system(cleanpcap)
-        time.sleep(CYCLER.interval)
 
 if __name__ == '__main__':
     INTV = int(sys.argv[2])
