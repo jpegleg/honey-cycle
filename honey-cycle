@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+cd /opt/net-gargoyle/workspace
+source ngvenv/bin/activate
+python3 cycle.py GargoyleCycler 86400 &
