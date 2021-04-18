@@ -10,3 +10,13 @@ at 500MB.
 
 honey-cycle creates a self-maintaining honeypot appliance out of net-gargoyle2
 that upgrades itself and manages its disk space.
+
+# Using the install script
+The 'install' file will also install net-gargoyle2 if not already installed.
+Usage example:
+
+```
+chmod +x install
+./install
+honey-cycle
+```
