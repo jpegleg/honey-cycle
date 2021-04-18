@@ -33,3 +33,7 @@ The file cycler.py is placed in /opt/net-gargoyle/workspace/cycler.py and contai
 in addition to the sleep set in /usr/sbin/honey-cycle
 
 Use the sleep to extend the amount of time each tcpdump is cut off.
+
+If the partion that /opt is in gets 90% or more full, honey-cycle will start deleting .db.gz and .pcap files
+out of /opt/net-gargoyle/ regardless of their age. If removing those files doesn't get it below 90% it will exit
+instead of running as to not compound the problem with more pcaps.
