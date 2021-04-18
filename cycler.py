@@ -25,7 +25,7 @@ class honeyCycle():
     def cleaner(self):
         '''Remove old files'''
         print ("honeyCycle >>> compress fresh backup db files", self.name)
-        gzipdbs = 'gzip -9 /opt/net-gargoyle/*.db'
+        gzipdbs = 'find /opt/net-gargoyle/*.db -mtime +1 -exec gzip -9 {} \;'
         os.system(gzipdbs)
         print ("honeyCycle >>> removing old db files", self.name)
         olddbs = 'find /opt/net-gargoyle/*.db.gz -mtime +17 -exec rm -f {} \;'
