@@ -1,0 +1,15 @@
+[Unit]
+Description=honey-cycle honeypot
+Documentation=https://github.com/jpegleg/honey-cycle
+After=network.target
+Wants=honey-cycle.service
+
+[Service]
+Type=forking
+ExecStart=/usr/local/sbin/honey-cycle
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
