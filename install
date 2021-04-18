@@ -8,6 +8,8 @@ cd net-gargoyle2
 chmod +x install
 ./install
 cd ..
+git clone https://github.com/jpegleg/honey-cycle
+cd honey-cycle
 cp cycler.py /opt/net-gargoyle/workspace/
 cp honey-cycle /usr/local/sbin/
 chmod +x /usr/local/sbin/honey-cycle
