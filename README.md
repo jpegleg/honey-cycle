@@ -22,3 +22,9 @@ chmod +x install
 ./install
 honey-cycle
 ```
+
+Using systemd (unit file installed by script)
+
+```
+systemctl start honey
+```
