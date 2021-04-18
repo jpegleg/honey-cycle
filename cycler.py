@@ -47,20 +47,20 @@ class honeyCycle():
         else:
             print("honeyCycle <<< Disk usage is not concerning yet, continue on.")
         print ("honeyCycle >>> check disk usage", self.name)
-        sized = 'df /opt | tail -n1 | awk \'{print $5}\' | grep "^9\|^100"'
-        alertsize = os.system(sized)
+        sized2 = 'df /opt | tail -n1 | awk \'{print $5}\' | grep "^9\|^100"'
+        alertsize2 = os.system(sized2)
         print ("honeyCycle <<< value of alertsize is", alertsize)
-        if alertsize == 0:
+        if alertsize2 == 0:
             print("honeyCycle <<< Disk size problem potential, clearing pcaps.")
             clearpcaps = 'rm -rf /opt/net-gargoyle/*.pcap'
             os.system(clearpcaps)
         else:
             print("honeyCycle <<< Disk usage is not concerning yet, continue on.")
         print ("honeyCycle >>> check disk usage", self.name)
-        sized = 'df /opt | tail -n1 | awk \'{print $5}\' | grep "^9\|^100"'
-        alertsize3 = os.system(sized)
+        sized3 = 'df /opt | tail -n1 | awk \'{print $5}\' | grep "^9\|^100"'
+        alertsize3 = os.system(sized3)
         print ("honeyCycle <<< value of alertsize is", alertsize3)
-        if alertsize == 0:
+        if alertsize3 == 0:
             print("honeyCycle <<< Disk size problem potential, already have cleaned up our files.")
             print("honeyCycle >>> EXIT now, manual attention to /opt needed.")
             sys.exit(1)
