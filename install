@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+mkdir /var/tmp/hcint 2>/dev/null
+cd /var/tmp/hcint
+rm -rf ./*
+git clone https://github.com/jpegleg/net-gargoyle2
+cd net-gargoyle2
+chmod +x install
+./install
+cd ..
+cp cycler.py /opt/net-gargoyle/workspace/
+cp honey-cycle /usr/local/sbin/
+chmod +x /usr/local/sbin/honey-cycle
