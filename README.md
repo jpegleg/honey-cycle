@@ -28,3 +28,8 @@ Using systemd (unit file installed by script)
 ```
 systemctl start honey
 ```
+
+The file cycler.py is placed in /opt/net-gargoyle/workspace/cycler.py and contains the age
+in addition to the sleep set in /usr/sbin/honey-cycle
+
+Use the sleep to extend the amount of time each tcpdump is cut off.
