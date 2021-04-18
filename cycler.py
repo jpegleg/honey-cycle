@@ -34,14 +34,50 @@ class honeyCycle():
         cleanpcap = 'find /opt/net-gargoyle/*.pcap -mtime +2 -exec rm -f {} \;'
         os.system(cleanpcap)
 
+    def diskcheck(self):
+        '''Check disk usage'''
+        print ("honeyCycle >>> check disk usage", self.name)
+        sized = 'df /opt | tail -n1 | awk \'{print $5}\' | grep "^9\|^100"'
+        alertsize = os.system(sized)
+        print ("honeyCycle <<< value of alertsize is", alertsize)
+        if alertsize == 0:
+            print("honeyCycle <<< Disk size problem potential, clearing pcaps.")
+            clearpcaps = 'rm -rf /opt/net-gargoyle/*.pcap'
+            os.system(clearpcaps)
+        else:
+            print("honeyCycle <<< Disk usage is not concerning yet, continue on.")
+        print ("honeyCycle >>> check disk usage", self.name)
+        sized = 'df /opt | tail -n1 | awk \'{print $5}\' | grep "^9\|^100"'
+        alertsize = os.system(sized)
+        print ("honeyCycle <<< value of alertsize is", alertsize)
+        if alertsize == 0:
+            print("honeyCycle <<< Disk size problem potential, clearing pcaps.")
+            clearpcaps = 'rm -rf /opt/net-gargoyle/*.pcap'
+            os.system(clearpcaps)
+        else:
+            print("honeyCycle <<< Disk usage is not concerning yet, continue on.")
+        print ("honeyCycle >>> check disk usage", self.name)
+        sized = 'df /opt | tail -n1 | awk \'{print $5}\' | grep "^9\|^100"'
+        alertsize3 = os.system(sized)
+        print ("honeyCycle <<< value of alertsize is", alertsize3)
+        if alertsize == 0:
+            print("honeyCycle <<< Disk size problem potential, already have cleaned up our files.")
+            print("honeyCycle >>> EXIT now, manual attention to /opt needed.")
+            sys.exit(1)
+        else:
+            print("honeyCycle <<< Disk usage is not concerning yet, continue on.")          
+            
 if __name__ == '__main__':
     INTV = int(sys.argv[2])
     NAMED = str(sys.argv[1])
     CYCLER = honeyCycle(NAMED, INTV)
     while True:
+        DISKCHECKER = threading.Thread(target=CYCLER.diskcheck(), name='Checker')
+        DISKCHECKER.start()
         HONEYCYCLER = threading.Thread(target=CYCLER.tcpd(), name='Cycler')
         HONEYCYCLER.start()
         NETCYCLER = threading.Thread(target=CYCLER.cleaner(), name='Cleaner')
         NETCYCLER.start()
+        DISKCHECKER.join()
         HONEYCYCLER.join()
         NETCYCLER.join()
