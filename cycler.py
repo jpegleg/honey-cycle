@@ -28,10 +28,10 @@ class honeyCycle():
         gzipdbs = 'gzip -9 /opt/net-gargoyle/*.db'
         os.system(gzipdbs)
         print ("honeyCycle >>> removing old db files", self.name)
-        olddbs = 'find /opt/net-gargoyle/*.db.gz -mtime +17'
+        olddbs = 'find /opt/net-gargoyle/*.db.gz -mtime +17 -exec rm -f {} \;'
         os.system(olddbs)
         print ("honeyCycle >>> cleaning up old pcap files", self.name)
-        cleanpcap = 'find /opt/net-gargoyle/*.pcap -mtime +7'
+        cleanpcap = 'find /opt/net-gargoyle/*.pcap -mtime +7 -exec rm -f {} \'
         os.system(cleanpcap)
 
 if __name__ == '__main__':
