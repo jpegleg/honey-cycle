@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 cd /opt/net-gargoyle/workspace
 source ngvenv/bin/activate
-python3 cycler.py GargoyleCycler 86400 2>/dev/null > /opt/net-gargoyle/honey-cycle.log &
+python3 cycler.py GargoyleCycler 7200 2>/dev/null > /opt/net-gargoyle/honey-cycle.log &
