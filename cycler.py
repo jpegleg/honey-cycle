@@ -31,7 +31,7 @@ class honeyCycle():
         olddbs = 'find /opt/net-gargoyle/*.db.gz -mtime +17 -exec rm -f {} \;'
         os.system(olddbs)
         print ("honeyCycle >>> cleaning up old pcap files", self.name)
-        cleanpcap = 'find /opt/net-gargoyle/*.pcap -mtime +7 -exec rm -f {} \'
+        cleanpcap = 'find /opt/net-gargoyle/*.pcap -mtime +7 -exec rm -f {} \;'
         os.system(cleanpcap)
 
 if __name__ == '__main__':
