@@ -54,7 +54,7 @@ class honeyCycle():
         sized = 'df /opt | tail -n1 | awk \'{print $5}\' | grep "^9\|^100"'
         alertsize = os.system(sized)
         timeslice()
-        print (TIMESTAMP, "honeyCycle <<< value of alertsize is", alertsize)
+        print (TIMESTAMP, "honeyCycle <<< value of alertsize (either 0 or 256) is", alertsize)
         if alertsize == 0:
             timeslice()
             print(TIMESTAMP, "honeyCycle <<< Disk size problem potential, clearing pcaps.")
@@ -68,7 +68,7 @@ class honeyCycle():
         sized2 = 'df /opt | tail -n1 | awk \'{print $5}\' | grep "^9\|^100"'
         alertsize2 = os.system(sized2)
         timeslice()
-        print (TIMESTAMP, "honeyCycle <<< value of alertsize is", alertsize)
+        print (TIMESTAMP, "honeyCycle <<< value of alertsize (either 0 or 256) is", alertsize2)
         if alertsize2 == 0:
             timeslice()
             print(TIMESTAMP, "honeyCycle <<< Disk size problem potential, clearing pcaps.")
@@ -82,7 +82,7 @@ class honeyCycle():
         sized3 = 'df /opt | tail -n1 | awk \'{print $5}\' | grep "^9\|^100"'
         alertsize3 = os.system(sized3)
         timeslice()
-        print (TIMESTAMP, "honeyCycle <<< value of alertsize is", alertsize3)
+        print (TIMESTAMP, "honeyCycle <<< value of alertsize (either 0 or 256) is", alertsize3)
         if alertsize3 == 0:
             timeslice()
             print(TIMESTAMP, "honeyCycle <<< Disk size problem potential, already have cleaned up our files.")
