@@ -51,7 +51,7 @@ class honeyCycle():
         '''Check disk usage'''
         timeslice()
         print (TIMESTAMP, "honeyCycle >>> check disk usage", self.name)
-        sized = 'df /opt | tail -n1 | awk \'{print $5}\' | grep "^9\|^100"'
+        sized = 'df /opt | tail -n1 | awk \'{print $5}\' | grep -m1 "^9\|^100"'
         alertsize = os.system(sized)
         timeslice()
         print (TIMESTAMP, "honeyCycle <<< value of alertsize is", alertsize)
@@ -65,7 +65,7 @@ class honeyCycle():
             print(TIMESTAMP, "honeyCycle <<< Disk usage is not concerning yet, continue on.")
         timeslice()
         print (TIMESTAMP, "honeyCycle >>> check disk usage", self.name)
-        sized2 = 'df /opt | tail -n1 | awk \'{print $5}\' | grep "^9\|^100"'
+        sized2 = 'df /opt | tail -n1 | awk \'{print $5}\' | grep -m1 "^9\|^100"'
         alertsize2 = os.system(sized2)
         timeslice()
         print (TIMESTAMP, "honeyCycle <<< value of alertsize is", alertsize)
@@ -79,7 +79,7 @@ class honeyCycle():
             print(TIMESTAMP, "honeyCycle <<< Disk usage is not concerning yet, continue on.")
         timeslice()
         print (TIMESTAMP, "honeyCycle >>> check disk usage", self.name)
-        sized3 = 'df /opt | tail -n1 | awk \'{print $5}\' | grep "^9\|^100"'
+        sized3 = 'df /opt | tail -n1 | awk \'{print $5}\' | grep -m1 "^9\|^100"'
         alertsize3 = os.system(sized3)
         timeslice()
         print (TIMESTAMP, "honeyCycle <<< value of alertsize is", alertsize3)
