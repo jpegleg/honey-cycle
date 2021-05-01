@@ -1,4 +1,4 @@
-![net-gargoyle2](https://carefuldata.com/images/cdlogo.png)
+![honey-cycle](https://carefuldata.com/images/cdlogo.png)
 
 # honey-cycle
 pcap collection and disk cleaning daemon for net-gargoyle2 honeypot
