@@ -7,9 +7,9 @@ else
 fi
 echo -e "$(date +%Y%m%d%H%M%S) >>> \e[1;33m  ---> Starting install run for \e[0;32m honey\e[1;38m cycle \e[0m  " | tee /var/log/honey_cycle.dat
 mkdir /var/tmp/hcint 2>/dev/null
-cd /var/tmp/hcint
+cd /var/tmp/hcint || exit 1
 rm -rf ./*
-git clone https://github.com/jpegleg/net-gargoyle2 || 
+git clone https://github.com/jpegleg/net-gargoyle2 || exit 1
 cd net-gargoyle2
 chmod +x install
 ./install
